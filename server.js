@@ -1,18 +1,16 @@
-const express = require('express');
-const cors = require('cors');
-
-require('./services/telegramService'); // start telegram bot
-
-const topupRoutes = require('./routes/topup');
+// server.js
+const express = require("express");
+const bodyParser = require("body-parser");
+const topupRoutes = require("./routes/topup");
 
 const app = express();
+app.use(bodyParser.json());
 
-app.use(cors());
-app.use(express.json());
-
+// Routes
 app.use("/topup", topupRoutes);
 
-app.listen(3000, ()=>{
-    console.log("TopUp Service running on port 3000");
+// Start server
+const PORT = 3000;
+app.listen(PORT, () => {
+    console.log(`Top-up service running on http://localhost:${PORT}`);
 });
-
