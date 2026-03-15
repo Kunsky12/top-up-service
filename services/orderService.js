@@ -137,7 +137,7 @@ exports.verifyPayment = async (code, amount) => {
         Paid At: ${formattedPaidAt}`
                 );
 
-            } else if (order.type === "vipmembership") {
+            } else if (order.type === "VipMembership") {
                 await playfab.addVipMembership(order.playerId);
 
         await telegram.sendMessage(
